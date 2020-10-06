@@ -25,10 +25,11 @@ export class PersonaService {
         }
       }
     }
-    let total:number = 0;
-    total = this.totalayudas(personas);
 
-    if(total <= 600000){
+    let total:number = 0;
+    total = persona.vrapoyo +this.totalayudas(personas);
+
+    if(total < 600000){
       if (i == 0){
         personas.push(persona);
         localStorage.setItem('datos', JSON.stringify(personas));
@@ -41,7 +42,10 @@ export class PersonaService {
     let totalayudas:number = 0;
 
     for(let persons of personas){
-      totalayudas += persons.vrapoyo;
+      
+        totalayudas += persons.vrapoyo;
+      
+      
     }
 
     return totalayudas;
