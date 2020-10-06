@@ -9,6 +9,7 @@ import { PersonaService } from '../services/persona.service';
 })
 export class RegistroComponent implements OnInit {
 
+  formulario;
   persona: Persona;
 
   constructor(private personaService: PersonaService) { }
@@ -17,9 +18,11 @@ export class RegistroComponent implements OnInit {
     this.persona= new Persona();
   }
 
-  add(){
+
+  add(form){
+    console.log(form);
     alert('Se agrego una nueva persona ' + JSON.stringify(this.persona));
-    this.personaService.post(this.persona)
+    this.personaService.post(this.persona);
   }
 
 }
